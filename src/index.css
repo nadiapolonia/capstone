@@ -9,4 +9,325 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  background-color: whitesmoke;
+}
+
+ul {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 0rem;
+}
+
+button {
+  background-color: rgb(0, 172, 172);
+  color: whitesmoke;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+h4 {
+  color: teal;
+}
+
+.content {
+  margin-top: 6.5rem;
+}
+
+.teal {
+  color: teal;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  height: 4rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.301);
+  padding: 0.5rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.logo {
+  width: 12%;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 0.5rem;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  color: rgb(134, 255, 255);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  display: none;
+}
+
+.nav-mobile-item {
+  color: grey;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-mobile-item:hover {
+  color: tomato;
+}
+
+/*Hamburger Toggle */
+
+.togglebutton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 1.5rem;
+  width: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.togglebutton:focus {
+  outline: none;
+}
+
+.toggle-button-line1 {
+  width: 1.5rem;
+  height: 0.1rem;
+  background: whitesmoke;
+}
+.toggle-button-line2 {
+  width: 1.5rem;
+  height: 0.15rem;
+  background: rgb(186, 255, 255);
+}
+.toggle-button-line3 {
+  width: 1.5rem;
+  height: 0.2rem;
+  background: rgb(125, 252, 252);
+}
+
+.drop-drawer {
+  height: 40%;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  background-color: whitesmoke;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 35%;
+  max-width: 10rem;
+  margin-top: 5rem;
+  z-index: 200;
+}
+
+.drop-drawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+.drop-drawer li {
+  margin: 0;
+  padding: 0;
+  color: grey;
+}
+
+.logo-drop {
+  width: 35%;
+  filter: hue-rotate(180deg);
+}
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.534);
+  z-index: 100;
+  top: 0;
+  left: 0;
+  margin-top: 5rem;
+}
+
+/* Home Page */
+.background {
+  background-image: url('https://css-tricks.com/wp-content/uploads/2019/06/clouds-featured.png');
+  background-size: cover;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-message {
+  margin-top: 6rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.quote-title {
+  background-color: rgb(173, 255, 247);
+  font-weight: bold;
+  color: teal;
+}
+
+.quote {
+  background-color: rgb(73, 255, 237);
+  height: 4.5rem;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  color: white;
+  font-style: italic;
+}
+
+.patient {
+  color: inherit;
+  text-decoration: none;
+  color: grey;
+  clear: left;
+  float: left;
+}
+
+.patient:hover {
+  color: tomato;
+}
+
+.flex-patient {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-patient-button {
+  height: 3rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Patient Page */
+
+.patient-info {
+  margin-top: 2.5rem;
+}
+
+.patient-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.patient-name {
+  padding: 1rem;
+  color: teal;
+}
+
+.hw {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+/* Add Pages */
+.submit {
+  margin-top: 2rem;
+  height: 3rem;
+  width: 4.5rem;
+}
+
+.delete {
+  margin-top: 2rem;
+  height: 3rem;
+  width: 4.5rem;
+  background-color: rgb(255, 25, 179);
+}
+
+.box {
+  background-color: rgb(236, 252, 252);
+  border: teal solid;
+}
+
+/* Desktop MEDIA QUERY Scaling */
+@media (min-width: 600px) {
+  .logo {
+    width: 5%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .background {
+    height: 20rem;
+  }
+
+  .quote {
+    height: 2rem;
+  }
+
+  /*Header*/
+
+  header {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  nav {
+    padding: 1rem;
+  }
+
+  li {
+    padding: 1rem;
+  }
+
+  .nav-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: rgb(134, 255, 255);
+    text-decoration: none;
+    display: inherit;
+  }
+
+  .nav-item:hover {
+    color: tomato;
+  }
+
+  .togglebutton {
+    display: none;
+  }
+
+  /*Home Page*/
+
+  .welcome-message {
+    margin-top: 6rem;
+    font-size: 3rem;
+  }
+
+  .quote {
+    justify-content: center;
+  }
+
+  .home-content {
+    margin-top: 3rem;
+  }
 }
