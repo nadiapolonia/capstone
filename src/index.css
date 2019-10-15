@@ -297,7 +297,7 @@ h4 {
 }
 
 .no-line:hover {
-  color: tomato;
+  text-decoration: underline;
 }
 
 /* Desktop MEDIA QUERY Scaling */
@@ -329,7 +329,7 @@ h4 {
   }
 
   li {
-    padding: 1rem;
+    padding: 0.05rem;
   }
 
   .nav-item {

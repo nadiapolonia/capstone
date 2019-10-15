@@ -28,12 +28,12 @@ class App extends Component {
             ></Route>
             <Route
               exact
-              path="/patients/:id/assign/:id"
+              path="/patients/:patientId/assign/:assignmentId"
               component={AssignmentPage}
             ></Route>
             <Route
               exact
-              path="/patients/:id/notes/:id"
+              path="/patients/:patientId/notes/:noteId"
               component={NotePage}
             ></Route>
             <Route

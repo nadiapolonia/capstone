@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const AssignHWPage = props => {
   const [addHWform, setaddHWform] = useState({
@@ -7,13 +8,15 @@ const AssignHWPage = props => {
     Task: '',
     Resources: ''
   })
+  const [doTheRedirect, setDoTheRedirect] = useState(false)
 
   const addAssignment = async e => {
-    // e.preventDefault()
+    e.preventDefault()
     const resp = await axios.post(
       `https://localhost:5001/api/Patients/${props.match.params.id}/assign`,
       addHWform
     )
+    setDoTheRedirect(true)
   }
 
   const update = e => {
@@ -24,6 +27,10 @@ const AssignHWPage = props => {
   }
   return (
     <div className="content">
+      {doTheRedirect ? (
+        <Redirect to={{ pathname: `/patients/${props.match.params.id}/` }} />
+      ) : null}
+
       <h2 className="teal">Add Assignment</h2>
       <form onSubmit={addAssignment} action="">
         <div>

@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const AddNotesPage = props => {
   const [addNotes, setaddNotes] = useState({
     Title: '',
     Description: ''
   })
+  const [doTheRedirect, setDoTheRedirect] = useState(false)
 
   const addNote = async e => {
-    // e.preventDefault()
+    e.preventDefault()
     const resp = await axios.post(
       `https://localhost:5001/api/Patients/${props.match.params.id}/notes`,
       addNotes
     )
+    setDoTheRedirect(true)
   }
+
+  // const redirect = async () => {
+  //   setDoTheRedirect(true)
+  // }
 
   const update = e => {
     setaddNotes({
@@ -23,6 +30,10 @@ const AddNotesPage = props => {
   }
   return (
     <div className="content">
+      {doTheRedirect ? (
+        <Redirect to={{ pathname: `/patients/${props.match.params.id}/` }} />
+      ) : null}
+
       <h2>Add Patient Notes</h2>
       <form onSubmit={addNote} action="">
         <div>

@@ -7,7 +7,7 @@ const AssignmentPage = props => {
 
   const fetchData = async () => {
     const resp = await Axios.get(
-      `https://localhost:5001/api/patients/${props.match.params.id}/assign/${props.match.params.id}`
+      `https://localhost:5001/api/patients/${props.match.params.patientId}/assign/${props.match.params.assignmentId}`
     )
     setassignData(resp.data)
   }
@@ -30,7 +30,7 @@ const AssignmentPage = props => {
         <p className="resources">{assignData.resources}</p>
       </section>
 
-      <Link to={{ pathname: `/` }}>
+      <Link to={{ pathname: `/patients/${props.match.params.patientId}` }}>
         <button className="submit">Return</button>
       </Link>
     </div>

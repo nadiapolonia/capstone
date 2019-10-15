@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const AddPatientPage = () => {
   const [addpatientform, setaddpatientform] = useState({
@@ -8,13 +9,15 @@ const AddPatientPage = () => {
     Schedule: '',
     Diagnoses: ''
   })
+  const [doTheRedirect, setDoTheRedirect] = useState(false)
 
   const addPatient = async e => {
-    // e.preventDefault()
+    e.preventDefault()
     const resp = await axios.post(
       `https://localhost:5001/api/Patients`,
       addpatientform
     )
+    setDoTheRedirect(true)
   }
 
   const update = e => {
@@ -26,6 +29,7 @@ const AddPatientPage = () => {
 
   return (
     <div className="content">
+      {doTheRedirect ? <Redirect to="/" /> : null}
       <h2 className="teal">Add Patient</h2>
       <form onSubmit={addPatient} action="">
         <div>

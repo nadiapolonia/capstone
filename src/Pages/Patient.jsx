@@ -3,13 +3,17 @@ import axios from 'axios'
 import PatientProp from '../components/PatientProp'
 import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
+import { tsConstructorType } from '@babel/types'
+import { withRouter } from 'react-router-dom'
 
 const Patient = props => {
   const [patientData, setpatientData] = useState([])
   const [noteData, setnoteData] = useState([])
   const [assignData, setassignData] = useState([])
+  const [doTheRedirect, setDoTheRedirect] = useState(false)
   const assign = { assign }
   const notes = { notes }
+
   // const patData = props.location.state.show
   const fetchData = async () => {
     const resp = await axios.get(
@@ -24,9 +28,7 @@ const Patient = props => {
     const resp = await axios.delete(
       `https://localhost:5001/api/Patients/${props.match.params.id}`
     )
-    // .then(() => {
-    //   ;<Redirect to="/" />
-    // })
+    setDoTheRedirect(true)
   }
 
   const fetchNoteData = async () => {
@@ -52,6 +54,7 @@ const Patient = props => {
 
   return (
     <div className="content">
+      {doTheRedirect ? <Redirect to="/" /> : null}
       <section className="patient-title">
         <h2 className="patient-name">
           {patientData.firstName} {patientData.lastName}
@@ -114,7 +117,7 @@ const Patient = props => {
                       state: { notes }
                     }}
                   >
-                    <h4> {notes.title}</h4>
+                    <h4> Note: {notes.title}</h4>
                   </Link>
                 </li>
               )

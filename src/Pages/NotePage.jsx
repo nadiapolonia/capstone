@@ -7,7 +7,7 @@ const NotePage = props => {
 
   const fetchData = async () => {
     const resp = await axios.get(
-      `https://localhost:5001/api/patients/${props.match.params.id}/notes/${props.match.params.id}`
+      `https://localhost:5001/api/patients/${props.match.params.patientId}/notes/${props.match.params.noteId}`
     )
     setnoteData(resp.data)
   }
@@ -27,7 +27,7 @@ const NotePage = props => {
           <p>{noteData.description}</p>
         </section>
 
-        <Link to={{ pathname: `/` }}>
+        <Link to={{ pathname: `/patients/${props.match.params.patientId}` }}>
           <button className="submit">Return</button>
         </Link>
       </div>
