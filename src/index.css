@@ -34,7 +34,7 @@ button {
 }
 
 h4 {
-  color: teal;
+  color: rgb(66, 172, 172);
 }
 
 .content {
@@ -43,6 +43,10 @@ h4 {
 
 .teal {
   color: teal;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 /* Header */
@@ -191,7 +195,7 @@ h4 {
 }
 
 .quote {
-  background-color: rgb(73, 255, 237);
+  background-color: rgb(72, 228, 212);
   height: 4.5rem;
   font-size: 0.85rem;
   padding: 0.5rem;
@@ -266,6 +270,34 @@ h4 {
 .box {
   background-color: rgb(236, 252, 252);
   border: teal solid;
+}
+.notes-box {
+  margin-bottom: 2rem;
+}
+
+/*Homework Page*/
+.assignment-page {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.task1 {
+  width: 75%;
+}
+
+.task-title {
+  color: rgb(66, 172, 172);
+}
+
+.no-line {
+  text-decoration: none;
+}
+
+.no-line:hover {
+  color: tomato;
 }
 
 /* Desktop MEDIA QUERY Scaling */

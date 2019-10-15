@@ -7,6 +7,7 @@ const Home = () => {
   const [patients, setpatients] = useState([])
   const [quote, setquote] = useState('')
   const patient = { patient }
+
   const fetchData = async () => {
     const resp = await axios.get('https://localhost:5001/api/patients')
     console.log(resp.data)

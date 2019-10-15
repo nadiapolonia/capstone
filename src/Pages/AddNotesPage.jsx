@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const AddNotesPage = () => {
+const AddNotesPage = props => {
   const [addNotes, setaddNotes] = useState({
+    Title: '',
     Description: ''
   })
 
   const addNote = async e => {
-    e.preventDefault()
-    const resp = await axios.post('https://localhost:5001/api/Note', {
+    // e.preventDefault()
+    const resp = await axios.post(
+      `https://localhost:5001/api/Patients/${props.match.params.id}/notes`,
       addNotes
-    })
+    )
   }
 
   const update = e => {
@@ -22,7 +24,17 @@ const AddNotesPage = () => {
   return (
     <div className="content">
       <h2>Add Patient Notes</h2>
-      <form onsubmit={addNote} action="">
+      <form onSubmit={addNote} action="">
+        <div>
+          <input
+            className="box notes-box"
+            id="Title"
+            required
+            type="text"
+            placeholder="Add title here"
+            onChange={update}
+          />
+        </div>
         <div>
           <textarea
             className="box"

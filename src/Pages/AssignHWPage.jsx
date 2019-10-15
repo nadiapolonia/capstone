@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const AssignHWPage = () => {
+const AssignHWPage = props => {
   const [addHWform, setaddHWform] = useState({
     Title: '',
     Task: '',
@@ -9,10 +9,11 @@ const AssignHWPage = () => {
   })
 
   const addAssignment = async e => {
-    e.preventDefault()
-    const resp = await axios.post('https://localhost:5001/api/Assignments', {
+    // e.preventDefault()
+    const resp = await axios.post(
+      `https://localhost:5001/api/Patients/${props.match.params.id}/assign`,
       addHWform
-    })
+    )
   }
 
   const update = e => {
@@ -24,7 +25,7 @@ const AssignHWPage = () => {
   return (
     <div className="content">
       <h2 className="teal">Add Assignment</h2>
-      <form onsubmit={addAssignment} action="">
+      <form onSubmit={addAssignment} action="">
         <div>
           <h4>Title</h4>
           <textarea
