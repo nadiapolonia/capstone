@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import config from '../config'
 
 const AddPatientPage = () => {
   const [addpatientform, setaddpatientform] = useState({
@@ -14,7 +15,7 @@ const AddPatientPage = () => {
   const addPatient = async e => {
     e.preventDefault()
     const resp = await axios.post(
-      `https://localhost:5001/api/Patients`,
+      config.API_URL + 'api/Patients',
       addpatientform
     )
     setDoTheRedirect(true)

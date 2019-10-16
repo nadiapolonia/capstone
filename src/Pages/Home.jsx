@@ -3,13 +3,17 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { OutputQuoteStyle } from 'terser'
 
+import config from '../config'
+
 const Home = () => {
   const [patients, setpatients] = useState([])
   const [quote, setquote] = useState('')
   const patient = { patient }
 
+  console.log({ config })
+
   const fetchData = async () => {
-    const resp = await axios.get('https://localhost:5001/api/patients')
+    const resp = await axios.get(config.API_URL + 'api/patients')
     console.log(resp.data)
     setpatients(resp.data)
   }

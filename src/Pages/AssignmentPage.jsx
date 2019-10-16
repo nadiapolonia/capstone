@@ -1,13 +1,15 @@
 import Axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import config from '../config'
 
 const AssignmentPage = props => {
   const [assignData, setassignData] = useState([])
 
   const fetchData = async () => {
     const resp = await Axios.get(
-      `https://localhost:5001/api/patients/${props.match.params.patientId}/assign/${props.match.params.assignmentId}`
+      config.API_URL +
+        `api/patients/${props.match.params.patientId}/assign/${props.match.params.assignmentId}`
     )
     setassignData(resp.data)
   }

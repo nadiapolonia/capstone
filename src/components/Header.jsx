@@ -30,7 +30,9 @@ class Header extends Component {
         <header className="header">
           <section className="flex">
             <img className="logo" src={Logo} />
-            <h1 className="logo-title">TranquilHealth</h1>
+            <Link className="no-line1" to="/">
+              <h1 className="logo-title">TranquilHealth</h1>{' '}
+            </Link>
           </section>
           <nav className="nav flex">
             <div>

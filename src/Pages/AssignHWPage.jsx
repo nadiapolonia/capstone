@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import config from '../config'
 
 const AssignHWPage = props => {
   const [addHWform, setaddHWform] = useState({
@@ -13,7 +14,7 @@ const AssignHWPage = props => {
   const addAssignment = async e => {
     e.preventDefault()
     const resp = await axios.post(
-      `https://localhost:5001/api/Patients/${props.match.params.id}/assign`,
+      config.API_URL + `api/Patients/${props.match.params.id}/assign`,
       addHWform
     )
     setDoTheRedirect(true)

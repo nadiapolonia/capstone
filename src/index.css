@@ -201,6 +201,9 @@ h4 {
   padding: 0.5rem;
   color: white;
   font-style: italic;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .patient {
@@ -298,6 +301,9 @@ h4 {
 
 .no-line:hover {
   text-decoration: underline;
+}
+.no-line1 {
+  text-decoration: none;
 }
 
 /* Desktop MEDIA QUERY Scaling */

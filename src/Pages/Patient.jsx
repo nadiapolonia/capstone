@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import { tsConstructorType } from '@babel/types'
 import { withRouter } from 'react-router-dom'
+import config from '../config'
 
 const Patient = props => {
   const [patientData, setpatientData] = useState([])
@@ -17,7 +18,7 @@ const Patient = props => {
   // const patData = props.location.state.show
   const fetchData = async () => {
     const resp = await axios.get(
-      `https://localhost:5001/api/patients/${props.match.params.id}`
+      config.API_URL + `api/patients/${props.match.params.id}`
     )
     setpatientData(resp.data)
     console.log(patientData)
@@ -26,14 +27,14 @@ const Patient = props => {
   const deletePatient = async () => {
     // e.preventDefault()
     const resp = await axios.delete(
-      `https://localhost:5001/api/Patients/${props.match.params.id}`
+      config.API_URL + `api/Patients/${props.match.params.id}`
     )
     setDoTheRedirect(true)
   }
 
   const fetchNoteData = async () => {
     const resp = await axios.get(
-      `https://localhost:5001/api/patients/${props.match.params.id}/notes`
+      config.API_URL + `api/patients/${props.match.params.id}/notes`
     )
     setnoteData(resp.data)
     console.log(noteData)
@@ -41,7 +42,7 @@ const Patient = props => {
 
   const fetchAssignData = async () => {
     const resp = await axios.get(
-      `https://localhost:5001/api/patients/${props.match.params.id}/assign`
+      config.API_URL + `api/patients/${props.match.params.id}/assign`
     )
     setassignData(resp.data)
   }

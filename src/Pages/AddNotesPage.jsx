@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import config from '../config'
 
 const AddNotesPage = props => {
   const [addNotes, setaddNotes] = useState({
@@ -12,7 +13,7 @@ const AddNotesPage = props => {
   const addNote = async e => {
     e.preventDefault()
     const resp = await axios.post(
-      `https://localhost:5001/api/Patients/${props.match.params.id}/notes`,
+      config.API_URL + `api/Patients/${props.match.params.id}/notes`,
       addNotes
     )
     setDoTheRedirect(true)

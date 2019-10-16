@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import config from '../config'
 
 const NotePage = props => {
   const [noteData, setnoteData] = useState([])
 
   const fetchData = async () => {
     const resp = await axios.get(
-      `https://localhost:5001/api/patients/${props.match.params.patientId}/notes/${props.match.params.noteId}`
+      config.API_URL +
+        `api/patients/${props.match.params.patientId}/notes/${props.match.params.noteId}`
     )
     setnoteData(resp.data)
   }
